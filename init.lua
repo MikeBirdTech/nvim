@@ -109,6 +109,10 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- increment/decrement numbers
+vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
+vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -885,7 +889,7 @@ require("lazy").setup({
 			-- Keymaps
 			vim.keymap.set(
 				"n",
-				"<leader>e",
+				"<leader>ft",
 				":NvimTreeToggle<CR>",
 				{ noremap = true, silent = true, desc = "Toggle file explorer" }
 			)
@@ -925,6 +929,10 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		"ThePrimeagen/vim-be-good",
+	},
+	{ "tpope/vim-surround" },
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
