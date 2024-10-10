@@ -1,11 +1,9 @@
--- In your plugin configuration file (e.g., lua/plugins.lua)
 return {
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			-- Harpoon setup goes here
 			local harpoon = require("harpoon")
 
 			-- REQUIRED: Setup harpoon
@@ -15,33 +13,31 @@ return {
 			vim.keymap.set("n", "<leader>ha", function()
 				harpoon:list():add()
 			end, { desc = "Harpoon add file" })
-			vim.keymap.set("n", "<C-h>", function()
+			vim.keymap.set("n", "<leader>hm", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
 			end, { desc = "Harpoon quick menu" })
 
-			-- QWERTY-friendly keymaps for quick file navigation
-			vim.keymap.set("n", "<C-j>", function()
+			vim.keymap.set("n", "<leader>h1", function()
 				harpoon:list():select(1)
 			end, { desc = "Harpoon file 1" })
-			vim.keymap.set("n", "<C-k>", function()
+			vim.keymap.set("n", "<leader>h2", function()
 				harpoon:list():select(2)
 			end, { desc = "Harpoon file 2" })
-			vim.keymap.set("n", "<C-l>", function()
+			vim.keymap.set("n", "<leader>h3", function()
 				harpoon:list():select(3)
 			end, { desc = "Harpoon file 3" })
-			vim.keymap.set("n", "<C-;>", function()
+			vim.keymap.set("n", "<leader>h4", function()
 				harpoon:list():select(4)
 			end, { desc = "Harpoon file 4" })
 
 			-- Toggle previous & next buffers stored within Harpoon list
-			vim.keymap.set("n", "<C-S-P>", function()
+			vim.keymap.set("n", "<leader>hp", function()
 				harpoon:list():prev()
 			end, { desc = "Harpoon prev file" })
-			vim.keymap.set("n", "<C-S-N>", function()
+			vim.keymap.set("n", "<leader>hn", function()
 				harpoon:list():next()
 			end, { desc = "Harpoon next file" })
 
-			-- Make sure you have Telescope installed and configured
 			local telescope_ok, telescope = pcall(require, "telescope")
 			if telescope_ok then
 				local conf = require("telescope.config").values
