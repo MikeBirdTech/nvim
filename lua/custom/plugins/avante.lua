@@ -4,7 +4,11 @@ return {
 	lazy = false,
 	version = false, -- set this if you want to always pull the latest change
 	opts = {
-		-- add any opts here
+		mappings = {
+			ask = "<leader>ai", -- ask
+			edit = "<leader>ae", -- edit
+			refresh = "<leader>ar", -- refresh
+		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",
@@ -22,12 +26,6 @@ return {
 			"HakonHarnes/img-clip.nvim",
 			event = "VeryLazy",
 			opts = {
-				mappings = {
-					ask = "<leader>ai", -- ask
-					edit = "<leader>ae", -- edit
-					refresh = "<leader>ar", -- refresh
-				},
-				-- recommended settings
 				default = {
 					embed_image_as_base64 = false,
 					prompt_for_file_name = false,
